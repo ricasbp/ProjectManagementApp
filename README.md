@@ -1,28 +1,22 @@
+# How to compile the project:
 
-## How to compile project:
-
-backend: 
+Backend:
 npm start
 
-frontend: 
+Frontend:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ng serve --open
 
-
-abrir o site backend:
+Open the backend website:
 localhost:3000
 
-
-abrir o site frontend:
+Open the frontend website:
 localhost:4200
 
-
-
-Alterar o site de conexão da base de dados para a vossa base de dados mongoose em:
+Change the database connection website to your mongoose database at:
 backend >> app.js
 
-
-## Collaborators: 
+# Collaborators:
 fc54440 - Francisco Amaro
 fc54474 - José Malheiro
 fc54427 - Francisco Silva
