@@ -1,0 +1,34 @@
+<div class = "block">
+<h1>Project Details!</h1>
+    <div *ngIf="project">
+
+        <ul>
+            <li><h3>Id: </h3> {{project._id}}</li>
+        
+            <li><h3>Name:  {{project.nome}} </h3></li>
+        
+        
+            <li><h3>Acronym: </h3>: {{project.acronimo}}</li>
+        
+        
+            <li><h3>Beginning Date </h3> {{project.data_inicio}}</li>
+        
+        
+            <li><h3>Ending Date: </h3> {{project.data_fim}}</li>
+        
+        
+            <li><h3>Associated Tasks: </h3>:</li>
+    
+            <ul *ngFor="let task of tarefas">
+                <a routerLink="/taskdetail/{{task._id}}">
+                    <div class="campo"> Nome: {{task.name}}</div>
+                </a>
+            </ul>
+    
+        </ul>
+    
+        
+    
+    </div>
+</div>
+

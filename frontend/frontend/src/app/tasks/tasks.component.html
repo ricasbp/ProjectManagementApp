@@ -1,0 +1,120 @@
+<div id="container">
+  <div *ngIf="this.viewAll" class="block tasks_container ">
+    <span class="header">
+      <h2>All Tasks</h2>
+      <button class="changeViewMode" (click)=switchViewMode()>View only my tasks</button>
+    </span>
+    <div *ngIf="tasks.length != 0">
+      <table>
+
+        <colgroup>
+          <col span="1" style="width: 5%;">
+          <col span="1" style="width: 65%;">
+          <col span="1" style="width: 15%;">
+          <col span="1" style="width: 15%;">
+        </colgroup>
+
+        <thead>
+          <tr id="table_header">
+            <th></th>
+            <th>Name</th>
+            <th>Progress</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let task of tasks" >
+            <td><button type="button" id="deleteButton" (click)=deleteTask(task)> X </button></td>
+            <td id = "task_name" routerLink="/taskdetail/{{task._id}}" >{{task.name}} </td>
+            <td>{{task.progress}} %</td>
+            <td>{{task.priority}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    <p *ngIf="tasks.length == 0"> Não existem tasks </p>
+  </div>
+
+  <div *ngIf="!this.viewAll" class="block tasks_container">
+    <span class="header">
+      <h2>My Tasks</h2>
+      <button class="changeViewMode" (click)=switchViewMode()>View all tasks</button>
+    </span>
+    <ul class="tasks">
+      <div *ngIf="myTasks">
+        <div *ngIf="myTasks.length != 0">
+
+          <table>
+
+            <colgroup>
+              <col span="1" style="width: 5%;">
+              <col span="1" style="width: 65%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+            </colgroup>
+    
+            <thead>
+              <tr id="table_header">
+                <th></th>
+                <th>Name</th>
+                <th>Progress</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr *ngFor="let task of myTasks" >
+                <td><button type="button" id="deleteButton" (click)=deleteTask(task)> X </button></td>
+                <td id = "task_name" routerLink="/taskdetail/{{task._id}}" >{{task.name}} </td>
+                <td>{{task.progress}} %</td>
+                <td>{{task.priority}}</td>
+              </tr>
+            </tbody>
+    
+          </table>
+          
+        </div>
+        <div *ngIf="myTasks.length == 0">
+          <p>Não tem tasks associadas</p>
+        </div>
+      </div>
+    </ul>
+  </div>
+
+
+  <div id="add_task_container" class="block">
+    <div class="header">
+      <h2>Add Task</h2>
+    </div>
+    <div id="add_task_name">
+      <label for="new-task" >name </label>
+      <input id="new-task" placeholder="(Insert task name here)" #taskName />
+    </div>
+
+    <div id="add_task_priority">
+      <label for="new-task">priority</label>
+      <select type='checkbox' #taskPriority>
+        <option value="Urgente">Urgente</option>
+        <option value="Alta" selected>Alta</option>
+        <option value="Média">Média</option>
+        <option value="Baixa">Baixa</option>
+      </select>
+    </div>
+
+    <div id = "add_task_dates">
+      <label for="new-project-begin-date">Begin Date: </label>
+      <input type = "date" id="new-project-begin-date" #taskBeginDate />
+      <label for="new-project-end-date">End Date: </label>
+      <input type = "date" id="new-project-end-date" #taskEndDate />
+    </div>
+    
+
+
+    <button type="button" class="add-button" (click)="addTask(taskName.value, taskPriority.value, taskBeginDate.value, taskEndDate.value); taskName.value=''">
+      Add task
+    </button>
+  </div>
+
+</div>

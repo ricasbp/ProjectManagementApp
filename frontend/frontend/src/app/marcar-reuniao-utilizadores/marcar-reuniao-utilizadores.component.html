@@ -1,0 +1,142 @@
+<div *ngIf="this.viewAll" class = block>
+    <div class = header>
+        <h2>All Reunions</h2>
+        <button class="changeViewMode" (click)=switchViewMode()>View only my tasks</button>
+    </div>
+
+    <div *ngIf = "reunions.length > 0">
+        <span>Name</span>
+        <ul>
+            <li *ngFor="let reunion of reunions" style="display: inline;">
+              <a style = "text-decoration: none;" routerLink="/reunionusersdetail/{{reunion._id}}" > <div class="campo">{{reunion.nome}} </div> </a>
+            </li>
+          </ul>
+    </div>
+    
+
+    <p *ngIf = "reunions.length == 0"> Ainda não hà reuniões marcadas </p>
+</div>
+
+<div *ngIf="!this.viewAll" class = "block">
+    <div class = "header">
+        <h2>My Reunions</h2>
+        <button class="changeViewMode" (click)=switchViewMode()>View all tasks</button>
+    </div>
+
+    <ul *ngIf = "myReunions.length > 0">
+        <li *ngFor="let r of myReunions">
+            <a routerLink="/reunionusersdetail/{{r._id}}"> <div class="campo"> nome: {{r.nome}} </div> </a>
+        </li>
+    </ul>
+
+    <p *ngIf = "myReunions.length == 0"> Ainda não tem reuniões marcadas </p>
+</div>
+
+
+
+<div *ngIf="this.reunionView" class = block>
+    <div class = "header">
+        <h2>Agendar Reunião</h2>
+        <button type ="button" class = 'router' (click)=teamReunionView()>Marcar Reunião de Equipa</button>
+    </div>
+
+    <div class="schedule-reunion">
+        <label for="new-reunion">Name </label>
+        <input id="new-reunion" #reunionName  placeholder="insert name here"/>
+        <p>Users</p>
+
+        <ul id="users">
+            <li *ngFor="let item of users" [value]="item.name" >
+                <button type ="button" #ref id="add-user" class="add-member" (click)="addMember(ref, item)"></button>
+                <span>{{item.name}}</span>
+                
+            </li>
+        </ul>
+    
+        <div id="time">
+            <p>Duration</p>
+            <div>
+                <button type ="button" #ref id="dectime"  (click)="decTime()">-</button>
+                <p>{{time}} minutes</p>
+                <button type ="button" #ref id="inctime"   (click)="incTime()">+</button>
+            </div>
+            
+        </div>
+        
+    
+    
+        <p>Intervalos de dias:</p>
+        <label for="begin">Begin Date: </label>
+        <input type = "date" id="begin" #beginDate />
+        <label for="end">End Date: </label>
+        <input type = "date" id="end" #endDate />
+    
+        <button type ="button" #ref id="check-availability"  (click)="checkAvailability(beginDate.value, endDate.value)">Check Availability</button>
+        <p></p>
+    
+    </div>
+    
+
+
+    
+    <div *ngIf="dates.length > 0">
+        <select id="escolherData" #escolherData>
+            <option [ngValue]="answer" *ngFor="let answer of dates">{{answer}} </option>
+        </select> 
+        <button type ="button" #ref id="schedule"  (click)="schedule(reunionName.value, escolherData.value)">Schedule Reunion</button>
+
+    </div>
+</div>
+
+
+<div *ngIf="!this.reunionView" class = block>
+    <div class="header">
+        <h2>Agendar Reunião Equipa</h2>
+        <button type ="button" class = 'router' (click)=userReunionView()>Marcar Reunião de Utilizadores</button>
+    </div>
+
+
+    <div class="schedule-reunion">
+        <label for="new-reunion">Reunion name: </label>
+        <input id="new-reunion" #reunionName2 />
+        <p>Team to select:</p>
+        <select [(ngModel)]="selectedTeam" >
+            <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}} </option>
+        </select>                                     
+        <br>   
+
+        <div id="time">
+            <p>Duration:</p>
+            <button type ="button" #ref id="dectime"  (click)="decTime()">-</button>
+            {{time}}
+            <button type ="button" #ref id="inctime"  (click)="incTime()">+</button>
+        </div>
+
+
+
+        <p>Intervalos de dias:</p>
+        <label for="begin">Begin Date: </label>
+        <input type = "date" id="begin" #beginDate2 />
+        <label for="end">End Date: </label>
+        <input type = "date" id="end" #endDate2 />
+
+        <button type ="button" #ref id="check-team-availability"  (click)="checkTeamAvailability(beginDate2.value, endDate2.value)">Check Team Availability</button>
+        <p></p>
+
+    </div>
+
+
+
+    
+    <div *ngIf="dates.length > 0">
+        <select id="escolherData" #escolherData2>
+            <option [ngValue]="answer" *ngFor="let answer of dates">{{answer}} </option>
+        </select> 
+        <button type ="button" #ref id="scheduleTeam"  (click)="scheduleTeam(reunionName2.value, escolherData2.value)">Schedule Reunion</button>
+
+    </div>
+</div>
+
+
+
+

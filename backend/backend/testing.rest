@@ -1,0 +1,28 @@
+GET http://localhost:3074/init
+###
+GET http://localhost:3074/users
+###
+GET http://localhost:3074/user/628a4f50bf33dbaf90548477/periods
+###
+GET http://localhost:3074/teams
+###
+GET http://localhost:3074/reunions
+###
+POST http://localhost:3074/reunions
+Content-Type: application/json
+
+{
+    "nome": "reuniao3",
+    "membros": "62882519ca86da7fb60c1244",
+    "data_inicio": "Mon May 23 2022 09:30:00 GMT+0100 (Hora de verão da Europa Ocidental)",
+    "data_fim": "Mon May 23 2022 10:00:00 GMT+0100 (Hora de verão da Europa Ocidental)",
+    "team" : {
+                "_id": "628961c0eaf1a87c717fa0f7",
+                "name": "team1",
+                "members": [],
+                "__v": 0
+             }
+}   
+###
+GET http://localhost:3074/reunion/6289f2dc2dcfb76c9160197c
+###

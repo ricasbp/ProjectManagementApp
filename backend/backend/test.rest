@@ -1,0 +1,62 @@
+GET http://localhost:3000/tasks
+###
+
+GET http://localhost:3000/team/627531d4967467657ee12e03
+
+###
+
+POST http://localhost:3000/teams
+Content-Type: application/json
+
+{
+    "name": "daniel",
+    "members": []
+}
+
+###
+
+PUT http://localhost:3000/team/6275a479e9427123c63b2508
+Content-Type: application/json
+
+{
+    "name": "daniel",
+    "members": []
+}
+
+###
+
+DELETE http://localhost:3000/team/627531d4967467657ee12e03
+
+###
+
+
+
+
+
+
+
+
+
+
+GET http://localhost:3074/user/62897b444fdfb44ca0a8772c/periods
+
+###
+
+POST http://localhost:3074/period
+Content-Type: application/json
+
+{
+    "begin_date": "20:00",
+    "end_date": "adeus"
+    
+}
+
+###
+
+PUT http://localhost:3074/user/628988225a17e3359ae6c186/period
+Content-Type: application/json
+
+{
+    "period": "628983a6c547190ce96136ec"
+}
+

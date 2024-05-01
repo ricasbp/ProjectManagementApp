@@ -1,0 +1,31 @@
+<div class="block">
+    <h2 class = header >Teams</h2>
+    <div class="admin-add">
+        <label for="new-team">Team name: </label>
+        <input id="new-team" #teamName placeholder="(Insert the team name here)"/>
+    
+        <label for="members">Users to add: </label>
+        <ul class="users">
+            <li *ngFor="let item of users" [value]="item.name">
+                <span>{{item.name}}  </span>
+                <button type ="button" #ref id="add-user" class="add-member" (click)="addMember(ref, item)">+</button>
+            </li>
+        </ul>
+    
+        <button type="button" id="add-button" (click)="addTeam(teamName.value, addMembers); teamName.value=''">Add team</button>
+    </div>
+    
+</div>
+
+<ul class="block teams">
+    <h2 class = header >List of all teams:</h2>
+    <li *ngFor="let team of teams">
+        <a routerLink="/team/{{team._id}}">
+            <span class="name">Team name: {{team.name}}</span>
+            <li *ngFor="let mem of team.members">
+                <span class="name">{{mem.name}}</span>
+            </li>
+        </a>
+        <button type="button" class="delete" title="delete team" (click)="deleteTeam(team)">X</button>
+    </li>
+</ul>

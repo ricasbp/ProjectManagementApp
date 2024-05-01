@@ -1,0 +1,78 @@
+<div></div>
+<div *ngIf="team">
+    <div *ngIf = "admin">
+        <div class="block">
+            <h2 class="header1">{{team.name | uppercase}} Details</h2>
+            <div><span>id: </span>{{team._id}}</div>
+            <!-- <div>
+                <label for="team-name">Team name: </label>
+                <input id="team-name" [(ngModel)]="team.name" placeholder="Team name">
+            </div>
+    
+            <button type ="button" id="update" title="update" (click)="update(team.name, members)">Update</button> -->
+        </div>
+        
+       
+        <div class="block">
+            <h3>Members: </h3>
+            <a>(Click "X" to remove the correspondent user)</a>
+            <ul class="members">
+                <li *ngFor="let item of members" [value]="item.name">
+                    <span class="name">{{item.name}} </span>
+                    <button type="button" class="delete" title="delete* member" (click)="deleteMember(item)">X</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="block">
+            <h3>User's not on the team: </h3>
+            <a>(Click "+" to add a user on the team)</a>
+
+            <ul class="add-users">
+                <li *ngFor="let item of outUsers" [value]="item.name">
+                    <span class="user">{{item.name}} </span>
+                    <button type="button" class="add-user" title="add member" (click)="addMember(item)">+</button>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="block">
+            <h3>Name of the Project Associated: </h3>
+            <a>(Click "X" to remove the associated project)</a>
+            <ul class="project">
+                <li *ngIf="project">
+                <span class="project_name"> {{project.nome}} </span>
+                <button type="button" class="delete" title="delete project" (click)="deleteProject()">X</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="block"> 
+            <h3>List Of Projects Available:</h3>
+
+            <ul class="projects">
+                <li *ngFor="let project of listOfAllProjects">
+                    <a routerLink="/detail/{{project._id}}">
+                        <div class="campo"> id: </div>
+                        {{project._id}}
+                        <br>
+                        <div class="campo"> nome: </div>
+                        {{project.nome}}
+                        <br>
+                        <div class="campo"> acronimo: </div>
+                        {{project.acronimo}}
+                        <br>
+                        <div class="campo"> data inicio: </div>
+                        {{project.data_inicio}}
+                        <br>
+                        <div class="campo"> data_fim: </div>
+                        {{project.data_fim}}
+                    </a>
+                    <span class="user">Add this Project / Update </span>
+                    <button type="button" id="add-user-button" title="add member" (click)="addProject(project)">+</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

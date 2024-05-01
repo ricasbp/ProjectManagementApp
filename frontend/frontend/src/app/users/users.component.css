@@ -1,0 +1,28 @@
+.block{
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #97B5B2;
+  margin-bottom: 20px;
+}
+
+div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input{
+  width: 20%;
+}
+
+.add-button{
+  width: 20%;
+}

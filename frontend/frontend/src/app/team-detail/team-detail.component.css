@@ -1,0 +1,141 @@
+/*General */
+
+h2{
+  text-align: center;
+}
+
+.block h2{
+  margin-bottom: 1rem;
+}
+
+li{
+  list-style: none;
+}
+
+button{
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 1%;
+  display: inline;
+}
+
+#add-user-button{
+  border-radius: 0%;
+  aspect-ratio: 1;
+  height: 25px;
+  width: 100px;
+  display: inline;
+}
+
+
+h1 {
+    margin-bottom: 0;
+  }
+  nav a {
+    padding: 1rem;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #3d3d3d;
+    border-radius: 4px;
+    margin: 5px
+  }
+  nav a:hover {
+    color: white;
+    background-color: #42545C;
+  }
+  nav a.active {
+    background-color: black;
+  }
+  
+.projects {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.projects li {
+  position: relative;
+  cursor: pointer;
+}
+
+.projects li:hover {
+  left: .1em;
+}
+
+  .projects a {
+  color: #333;
+  text-decoration: none;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+  .projects a:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+}
+
+.projects a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.projects .badge {
+  display: inline-block;
+  font-size: small;
+  color: black;
+  padding: 0.8em 0.7em 0 0.7em;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+
+/*block css*/
+
+#container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.block{
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.header{
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #97B5B2;
+  margin-bottom: 1%;
+}
+
+.header1{
+  height: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #97B5B2;
+  margin-bottom: 1%;
+}

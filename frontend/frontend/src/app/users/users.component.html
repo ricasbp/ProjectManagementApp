@@ -1,0 +1,23 @@
+<div class = "block">
+    <span class="header">
+        <h2>Register User</h2>
+    </span>
+    <label for="new-user-name">Nome: </label>
+    <input id="new-user-name" #userName />
+    <label for="new-user-acronym">Senha: </label>
+    <input type="password" id="new-user-acronym" #userSenha />
+    <label for="new-user-admin">Admin: </label>
+    <input type="checkbox" id="new-user-admin" (change)="isAdmin()">
+    <br>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="registerNewUser(userName.value, userSenha.value);">
+        Register New User
+    </button>
+</div>
+
+<h2>Requisitos senha do utilizador:</h2>
+<ul>
+    <li>A senha deve ter oito ou mais caracteres;</li>
+    <li>A senha deve ter incluindo pelo menos uma letra maiúscula, uma letra minúscula e um algarismo.</li>
+</ul>
+ 

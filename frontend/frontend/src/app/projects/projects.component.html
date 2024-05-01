@@ -1,0 +1,35 @@
+<div class="block" >
+  <h2 class="header">All Projects</h2>
+  <ul class="projects">
+    <li *ngFor="let project of projects">
+      <a routerLink="/projectdetail/{{project._id}}"> <div class="campo"> {{project.nome}} </div> </a>   
+    </li>
+  </ul> 
+</div>
+
+
+<div class = "block" id = "add_project_container" *ngIf = "admin">
+    <h2 class="header">Create Project</h2>
+    <div id="add_project_name">
+      <label for="new-project-name">Nome: </label>
+      <input id="new-project-name" #projectName placeholder="(Insert project name here)"/>
+    </div>
+    
+    <div id="add_project_name">
+      <label for="new-project-acronym">Acronym: </label>
+          <input id="new-project-acronym " placeholder="(Insert acronym here)" #projectAcronym />
+    </div>
+
+    <div id="add_project_dates">
+      <label for="new-project-begin-date">Begin Date: </label>
+      <input type = "date" id="new-project-begin-date" #projectBeginDate />
+      <label for="new-project-end-date">End Date: </label>
+      <input type = "date" id="new-project-end-date" #projectEndDate />
+    </div>
+    
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(projectName.value, projectAcronym.value, projectBeginDate.value, projectEndDate.value); projectName.value=''">
+        Add Project
+    </button>
+  
+  </div>

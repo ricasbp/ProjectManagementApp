@@ -1,0 +1,17 @@
+
+<div id="login">
+    <h2>Login</h2>
+    
+    <div id= "username_container">
+        <label id="name">Username</label>
+        <br>
+        <input type="text" placeholder ="Write your username" #name>
+    </div>
+    <div id= "password_container">
+        <label id="password">Password</label>
+        <br>
+        <input type="password" placeholder="Write your password" #password>
+    </div>
+    <button (click)="login(name.value, password.value)">Login</button>
+</div>
+

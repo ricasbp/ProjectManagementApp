@@ -1,0 +1,44 @@
+<router-outlet></router-outlet>
+
+<div>
+  <div class = "welcome_name">
+    <h1>Welcome </h1> <h1 id="userName"> {{user?.name}} </h1> <h1> ! </h1>
+  </div>
+  
+  <div *ngIf="this.tasks" class="block tasks_container ">
+    <span class="header">
+      <h2>Here are your current task's:</h2>
+    </span>
+    <div *ngIf="this.tasks.length != 0">
+      <table>
+
+        <colgroup>
+          <col span="1" style="width: 5%;">
+          <col span="1" style="width: 65%;">
+          <col span="1" style="width: 15%;">
+          <col span="1" style="width: 15%;">
+        </colgroup>
+
+        <thead>
+          <tr id="table_header">
+            <th></th>
+            <th>Name</th>
+            <th>Progress</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let task of this.tasks" >
+            <td id = "task_name" routerLink="/taskdetail/{{task._id}}" >{{task.name}} </td>
+            <td>{{task.progress}} %</td>
+            <td>{{task.priority}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    <p *ngIf="tasks.length == 0"> You don't have any tasks! What a hard worker! </p>
+  </div>
+
+</div>

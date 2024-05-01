@@ -1,0 +1,2 @@
+<app-app-bar *ngIf = "authenticatedUser" [title] = "this.title" [isAdmin] = "this.authenticatedUser.admin"></app-app-bar>
+<router-outlet *ngIf = "authenticatedUser"></router-outlet>    

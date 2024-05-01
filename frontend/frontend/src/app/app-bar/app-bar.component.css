@@ -1,0 +1,91 @@
+#container{
+    display: flex;
+    background-color: white;
+    min-height: 50px;
+    height: 10%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#container img{
+    border: none;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    height: 60%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#container h1{
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-style: black;
+    letter-spacing: 2px;
+    margin-left: 2%;
+    margin-right: 5%;
+}
+
+#container nav{
+    flex-wrap: nowrap;
+    display: flex;
+}
+
+#container a{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.router:visited{
+    text-decoration: none;
+}
+
+.router:focus{
+   text-decoration: underline;
+}
+#container div > a{
+    margin-left: auto;
+}
+
+/*DROP*/
+
+#drop-menu{
+    position: absolute;
+    left: 0;
+    width: 30%;
+    max-width: 300px;
+    height: 100%;
+    background-color: white;
+    color: black;
+    font: 4rem;
+}
+
+
+#drop-menu  nav{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+
+#drop-menu ul li:not(#menu-title){
+    font-size: 4rem;
+    margin: 30px 0;
+    align-items: center;
+}
+
+#drop-menu ul li:not(#menu-title) span{
+    font-size: 4rem;
+    margin: 8px 20px 8px 10px;
+}
+
+#menu-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3%;
+}

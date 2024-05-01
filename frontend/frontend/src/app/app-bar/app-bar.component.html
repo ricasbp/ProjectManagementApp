@@ -1,0 +1,40 @@
+<div id="container" *ngIf="!this.mobile">
+  <h1>{{title}}</h1>
+
+  <nav>
+    <a class='router' routerLink="/dashboard">Dashboard</a>
+    <a class='router' routerLink="/projects">Projects</a>
+    <a class='router' routerLink="/tasks">Tasks</a>
+    <a class='router' routerLink="/schedule">Schedule</a>
+    <a class='router' *ngIf="this.isAdmin" routerLink="/teams">Teams</a>
+    <a class='router' *ngIf="this.isAdmin" routerLink="/marcarreuniaoutilizadores">Reunião</a>
+    <a class='router' *ngIf="this.isAdmin" routerLink="/users">Register New User</a>
+  </nav>
+
+  <a routerLink="/login">Logout</a>
+</div>
+
+<div *ngIf="this.mobile">
+  <div #closed *ngIf="!open">
+    <span (click)="openSideBar()" id="list-button" class="material-icons show"> list </span>
+  </div>
+
+  <div id="drop-menu" class="hide" *ngIf="open">
+    <div #open>
+      <span (click)="closeSideBar()" id="menu-title">Menu<span id="close-menu-button" class="material-icons">
+          cancel
+        </span> </span>
+      <nav>
+        <a class='router' (click)="redirect('dashboard')">Dashboard</a>
+        <a class='router' (click)="redirect('projects')">Projects</a>
+        <a class='router' (click)="redirect('tasks')" >Tasks</a>
+        <a class='router' (click)="redirect('schedule')" >Schedule</a>
+        <a class='router' *ngIf="this.isAdmin" (click)="redirect('teams')">Teams</a>
+        <a class='router' *ngIf="this.isAdmin" (click)="redirect('marcarreuniaoutilizadores')">Reunião</a>
+        <a class='router' *ngIf="this.isAdmin" (click)="redirect('users')">Register New User</a>
+      </nav>
+      <a routerLink="/login">Logout</a>
+    </div>
+
+  </div>
+</div>

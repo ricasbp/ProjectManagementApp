@@ -1,0 +1,131 @@
+#title{
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#container{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+
+.block{
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.header{
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #97B5B2;
+  margin-bottom: 1%;
+}
+
+.info_stat{
+  display: flex;
+}
+
+.info_stat{
+  font-weight: bold;
+}
+
+.info_stat p{
+  margin-left: 1rem;
+  font-weight: normal;
+}
+
+#items_container{
+  width: calc(70% - 4rem);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#items_container li{
+  display: block;
+}
+
+#add_items_container{
+  display: flex;
+  flex-direction: column;
+  width: calc(30% - 4rem);
+  align-self: stretch;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#project_container div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.desassociar_button{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  color: rgb(176, 105, 105);
+}
+
+.associar_button{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  margin-left: 1%;
+}
+
+
+#project_add_container > div > div{
+  margin-top: 0.5%;
+  display: flex;
+}
+
+#project_add_container span,
+#associate_user_container span{
+  margin-right: 1%;
+}
+
+#associate_user_container div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+#users_list_container{
+  margin-top: 2%;
+}
+
+#users_list_container > div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+#users_list_container > div:hover{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+#users_list_container > div > div{
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+#add_items_container input{
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+
+#add_items_container button{
+  margin-top: 2rem;
+  margin-left: auto;
+  width: 30%;
+  aspect-ratio: 5;
+  border-radius: 20px;
+  border: none;
+}

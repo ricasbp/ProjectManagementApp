@@ -1,0 +1,21 @@
+<h1>Reunion Details!</h1>
+
+<div *ngIf="reunion">
+
+    <ul>
+        <li>Id: {{reunion._id}}</li>
+        <li>Nome: {{reunion.nome}}</li>
+        <li>Data Início: {{reunion.data_inicio}}</li>
+        <li>Data Fim: {{reunion.data_fim}}</li>
+        <li>membros:</li>
+    </ul>
+    <ul *ngFor="let membro of reunion.membros">
+        <li>Nome: {{membro.name}}</li>
+    </ul>
+
+    <ul *ngIf="reunion.team">
+        <br><li>Equipa: {{reunion.team.name}}</li>
+    </ul>
+</div>
+
+<app-messages></app-messages>

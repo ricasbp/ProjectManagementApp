@@ -1,0 +1,21 @@
+<h2>Schedule</h2>
+<br>
+<h3 for="time">Horário indisponível a marcar</h3>
+<label for="period-date">Date: </label>
+<input type="date" id="period-date" #periodDate />
+<br>
+<label for="begin-hour">Desde:</label>
+<input type="time" id="begin-hour" #beginhour required>
+<br>
+<label for="end-hour ">Até:</label>
+<input type="time" id="end-hour " #endhour required>
+<br>
+<button type="button " class="add-button " (click)="addPeriod(periodDate.value, beginhour.value, endhour.value);">Add schedule</button>
+
+
+<ul class="periods ">
+    <li *ngFor="let per of periods ">
+        <span class="date ">Desde: {{per.begin_date}}</span><br>
+        <span class="date ">Até: {{per.end_date}}</span><br><br>
+    </li>
+</ul>

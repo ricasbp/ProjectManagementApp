@@ -1,0 +1,172 @@
+/*block css*/
+
+#container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.block{
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.header{
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #97B5B2;
+  margin-bottom: 1%;
+}
+
+h2{
+  text-align: center;
+}
+
+.block h2{
+  margin-bottom: 1rem;
+}
+
+/*Table*/
+
+table{
+  width: 100%; 
+}
+
+th, td{
+  text-align: start;
+}
+
+#task_name{
+  cursor: pointer;
+}
+
+#task_name:hover{
+  background-color: rgba(0, 0, 0, .05);
+}
+
+table button{
+  width: 1.5rem;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(176, 105, 105);
+  color: white;
+}
+
+/*-----------------------------*/
+.tasks_container{
+  display: inline-block;
+  width: calc(70% - 4rem);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.task_view{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.task_view div{
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.task_view div:hover{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+#priority{
+  margin-left: auto;
+}
+
+
+
+/*Add Task*/
+#add_task_container{
+  display: flex;
+  flex-direction: column;
+  width: calc(30% - 4rem);
+  align-self: stretch;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#add_task_name{
+  display: flex;
+  flex-direction: column;
+}
+
+#add_task_priority{
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+#add_task_priority > *{
+  margin-right: 1rem;
+}
+
+#add_task_dates{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+#add_task_container input{
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+
+#add_task_container button{
+  margin-top: 4rem;
+  margin-left: auto;
+  width: 30%;
+  aspect-ratio: 5;
+  border-radius: 20px;
+  border: none;
+}
+
+
+
+.changeViewMode{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  #container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tasks_container{
+    width: calc(100% - 5%);
+    padding: 5%;
+    align-self: center;
+    margin: 5%;
+    padding: 2%;
+  }
+
+  #add_task_container{
+    width: calc(100% - 5%);
+    align-self: center;
+    margin: 5%;
+    padding: 2%;
+  }
+}

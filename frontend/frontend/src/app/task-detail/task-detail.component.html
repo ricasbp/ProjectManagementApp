@@ -1,0 +1,118 @@
+<div *ngIf="task">
+
+  <h2 id = "title">Task {{task.name | uppercase}} Details</h2>
+
+  <div class = block id = "task_info_container">
+    <div class="header">
+      <h2>Info</h2>
+    </div>  
+    <div>
+    <div class =" info_stat">Name: <p>{{task.name}}</p> </div>
+    <div class =" info_stat">Priority: <p>{{task.priority}}</p> </div>
+    <div class =" info_stat">Progress: <p>{{task.progress}}%</p> </div>
+    <button (click)="updateTask()">update progress</button>
+    <div *ngIf = "task.data_inicio" class =" info_stat">Begining date: <p>{{task.data_inicio}}</p> </div>
+    <div *ngIf = "task.data_inicio" class =" info_stat">End date: <p>{{task.data_fim}}</p> </div>
+
+    </div>
+</div>
+
+  <div *ngIf="task.project" class = block id = "project_container">
+      <div class="header">
+        <h2>Project</h2>
+      </div>  
+      <div>
+        <span style="display: flex;"> Project <p style="font-weight: bold; margin-left: .5rem;">{{getProject(task.project)?.nome}}</p> </span>
+        <button (click) = "dessociateTaskProject()" class = "desassociar_button" >desassociar projeto</button>
+      </div>
+  </div>
+  
+  <div *ngIf="!task.project" class = block id = "project_add_container"> 
+    <div class="header">
+      <h2>Project</h2>
+    </div>
+    <p>Não tem nenhum projeto associado</p> 
+    <div *ngIf="projects">
+
+      <div *ngIf="projects.length > 0">
+        <span>Projet list</span>
+        <select [(ngModel)]="selectedProject" >
+          <option *ngFor="let project of projects" [ngValue] = "project" >{{project.nome}}</option>
+        </select>
+        <button (click) = "associateTaskToProject()" class = "associar_button" >associar projeto</button>
+      </div>
+
+
+      <p *ngIf="projects.length == 0">Ainda não existem projetos</p> 
+
+
+    </div> 
+  </div>
+
+  
+  <div *ngIf="task.users" class = "block" id = "users_container">
+    <div class="header">
+      <h2>Users</h2>
+    </div>
+    <div *ngIf="users" id = "associate_user_container">
+
+      <div *ngIf="getNotAssociatedUsers().length > 0">
+        <span>Users list</span>
+        <select [(ngModel)]="selectedUser" >
+          <option *ngFor="let user of getNotAssociatedUsers()" [ngValue] = "user" >{{user.name}}</option>
+        </select>
+        <button (click) = "associateUserToTask()" class = "associar_button">associar user</button>
+      </div>
+
+    </div>
+
+    <div id = "users_list_container" *ngIf = "this.task.users.length > 0">
+      <span>Name</span>
+      <div *ngFor = "let user of this.task.users" >
+        <p style="font-weight: bold; margin-left: .5rem; margin: 0;">{{getUser(user)?.name}}</p>
+        <button (click) = "desassociateUserToTask(user)" class = "desassociar_button" >Desassociar utilizador</button>    
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  <div id = "container">
+    <div class = "block" id = "items_container">
+      <div class="header">
+        <h2>My items</h2>
+      </div>
+      <ol *ngIf = "this.task" class="items">
+        <li *ngFor="let item of task.items">   
+          <label for="item-checkbox">{{item.name}}</label> 
+          <input #refEl type="checkbox" id="item-checkbox" (change)="changeItemState(item, task, refEl)" [checked]="item.completed">                                               
+        </li>
+      </ol>
+      <p *ngIf = "this.task.items.length == 0" > Esta task ainda não tem items </p>
+    </div>
+
+    <div class = "block" id = "add_items_container">
+      <div class="header">
+        <h2>Add item</h2>
+      </div>
+      <label for="new-Item">name </label>
+      <input id="new-Item" #itemName />
+      <button type="button" class="add-button" (click)="addItem(itemName.value); itemName.value=''">
+        Add Item
+      </button>
+    </div>
+  </div>
+  
+  
+  </div>
+  
+
+
+    
+
